@@ -1,14 +1,14 @@
 
 public class Jogo {
 	
-	private static final int MAX_NAVIU_DE_UM_CANO = 4;
-	private int contNaviuDeUmCano = 0;
-	private static final int MAX_NAVIU_DE_DOIS_CANOS = 3;
-	private int contNaviuDeDoisCanos = 0;
-	private static final int MAX_NAVIU_DE_TRES_CANOS = 2;
-	private int contNaviuDeTresCanos = 0;
-	private static final int MAX_NAVIU_DE_QUATRO_CANOS = 1;
-	private int contNaviuDeQuatroCanos = 0;
+	private static final int MAX_NAVIO_DE_UM_CANO = 4;
+	private int contNavioDeUmCano = 0;
+	private static final int MAX_NAVIO_DE_DOIS_CANOS = 3;
+	private int contNavioDeDoisCanos = 0;
+	private static final int MAX_NAVIO_DE_TRES_CANOS = 2;
+	private int contNavioDeTresCanos = 0;
+	private static final int MAX_NAVIO_DE_QUATRO_CANOS = 1;
+	private int contNavioDeQuatroCanos = 0;
 	
 	private boolean jogadorDaVez;
 	private Boolean[][] tabuleiro = new Boolean[10][10];
@@ -53,63 +53,64 @@ public class Jogo {
 		}
 	}
 	
-	public void colocarNaviuDeUmCano(int linha, int coluna) {
+	public void colocarNavioDeUmCano(int linha, int coluna) {
 		
-		if (contNaviuDeUmCano == MAX_NAVIU_DE_UM_CANO) {
-			throw new ExcecaoBatalhaNaval("Numero máximo de naviu de um cano é 4.");
+		if (contNavioDeUmCano == MAX_NAVIO_DE_UM_CANO) {
+			throw new ExcecaoBatalhaNaval("Numero máximo de Navio de um cano é 4.");
 		}
 		colocarPeca(linha, coluna);
-		contNaviuDeUmCano++;
+		contNavioDeUmCano++;
 	}
 
-	public void colocarNaviuDeDoisCanos(int linha, int coluna, String direcao) {
+	public void colocarNavioDeDoisCanos(int linha, int coluna, String direcao) {
 		colocarPeca(linha, coluna);
-		if (contNaviuDeDoisCanos == MAX_NAVIU_DE_DOIS_CANOS) {
-			throw new ExcecaoBatalhaNaval("Numero máximo de naviu de dois canos é 3.");
+		if (contNavioDeDoisCanos == MAX_NAVIO_DE_DOIS_CANOS) {
+			throw new ExcecaoBatalhaNaval("Numero máximo de Navio de dois canos é 3.");
 		}
 		if(direcao.equals("horizontal")) {
 			colocarPeca(linha, coluna + 1);
-			contNaviuDeDoisCanos++;
+			contNavioDeDoisCanos++;
 		} else if (direcao.equals("vertical")) {
 			colocarPeca(linha + 1, coluna);
-			contNaviuDeDoisCanos++;
+			contNavioDeDoisCanos++;
 		}
 	}
 
-	public void colocarNaviuDeTresCanos(int linha, int coluna, String direcao) {
+	public void colocarNavioDeTresCanos(int linha, int coluna, String direcao) {
 		colocarPeca(linha, coluna);
-		if (contNaviuDeTresCanos == MAX_NAVIU_DE_TRES_CANOS) {
-			throw new ExcecaoBatalhaNaval("Numero máximo de naviu de três canos é 2.");
+		if (contNavioDeTresCanos == MAX_NAVIO_DE_TRES_CANOS) {
+			throw new ExcecaoBatalhaNaval("Numero máximo de Navio de três canos é 2.");
 		}
 		if (direcao.equals("horizontal")) {
 			colocarPeca(linha, coluna + 1);
 			colocarPeca(linha, coluna + 2);
-			contNaviuDeTresCanos++;
+			contNavioDeTresCanos++;
 		} else if (direcao.equals("vertical")) {
 			colocarPeca(linha + 1, coluna);
 			colocarPeca(linha + 2, coluna);
-			contNaviuDeTresCanos++;
+			contNavioDeTresCanos++;
 		} 
 	}
 
-	public void colocarNaviuDeQuatroCanos(int linha, int coluna, String direcao) {
+	public void colocarNavioDeQuatroCanos(int linha, int coluna, String direcao) {
 		colocarPeca(linha,coluna);
-		if (contNaviuDeQuatroCanos == MAX_NAVIU_DE_QUATRO_CANOS) {
-			throw new ExcecaoBatalhaNaval("Numero máximo de naviu de quatro canos é 1");
+		if (contNavioDeQuatroCanos == MAX_NAVIO_DE_QUATRO_CANOS) {
+			throw new ExcecaoBatalhaNaval("Numero máximo de Navio de quatro canos é 1");
 		}
 		if (direcao.equals("horizontal")) {
 			colocarPeca(linha, coluna + 1);
 			colocarPeca(linha, coluna + 2);
 			colocarPeca(linha, coluna + 3);
-			contNaviuDeQuatroCanos++;
+			contNavioDeQuatroCanos++;
 		} else if (direcao.equals("vertical")) {
 			colocarPeca(linha + 1, coluna);
 			colocarPeca(linha + 2, coluna);
 			colocarPeca(linha + 3, coluna);
-			contNaviuDeQuatroCanos++;
+			contNavioDeQuatroCanos++;
 		}
 		
 	}
+	
 	
 }
 
